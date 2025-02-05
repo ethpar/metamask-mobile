@@ -1,0 +1,25 @@
+name: build-android
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup ENV file
+      run: |
+        curl -L "${{secrets.JS_ENV_B64}}" -o .js.env
+    - name: Install dependencies
+      run: |
+        yarn run setup:expo
+        yarn run setup
+    - name: 
+      run: |
+        yarn run build:android:devbuild
+    - name: Archive artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: andorid-apk
+          path: android/app/build/outputs/**/*.apk
