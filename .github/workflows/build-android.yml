@@ -10,15 +10,14 @@ jobs:
     - name: Setup ENV file
       run: |
         echo "${{secrets.JS_ENV_B64}}" | base64 --decode > .js.env
+        echo "${{secrets.ANDROID_KEYSTORE_B64}}" | base64 --decode > android/keystores/flaskRelease.keystore
     - name: Install dependencies
       run: |
         yarn run setup:expo
         yarn run setup
     - name: Build APK
       run: |
-        cd android
-        chmod +x gradlew
-        ./gradlew assembleFlaskRelease --no-daemon --max-workers 2
+        yarn run build:android:flask
     - name: Archive artifacts
       uses: actions/upload-artifact@v4
       with:
