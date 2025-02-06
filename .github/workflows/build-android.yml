@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Setup ENV file
       run: |
-        curl -L "${{secrets.JS_ENV_B64}}" -o .js.env
+        echo "${{secrets.JS_ENV_B64}}" | base64 --decode > .js.env
     - name: Install dependencies
       run: |
         yarn run setup:expo
