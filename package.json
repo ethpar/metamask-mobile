@@ -34,7 +34,6 @@
     "build:announce": "node ./scripts/metamask-bot-build-announce-bitrise.js",
     "build:android:release": "./scripts/build.sh android release",
     "build:android:flask": "./scripts/build.sh android flask",
-    "build:android:flaskRelease": "./scripts/build.sh android flaskRelease --pre",
     "build:android:devbuild": "./scripts/build.sh android devBuild",
     "build:android:checksum": "./scripts/checksum.sh",
     "build:android:checksum:qa": "./scripts/checksum.sh QA",
