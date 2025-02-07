@@ -214,12 +214,12 @@ prebuild_android(){
     exit 1
   fi
 
-	if [ "$PRE_RELEASE" = false ] ; then
-		if [ -e $ANDROID_ENV_FILE ]
-		then
-			source $ANDROID_ENV_FILE
-		fi
-	fi
+	# if [ "$PRE_RELEASE" = false ] ; then
+	# 	if [ -e $ANDROID_ENV_FILE ]
+	# 	then
+	# 		source $ANDROID_ENV_FILE
+	# 	fi
+	# fi
 }
 
 buildAndroidRun(){
@@ -508,9 +508,9 @@ buildAndroidFlaskRelease(){
 	# remap flask env variables to match what the app expects
 	remapFlaskEnvVariables
 
-	if [ "$PRE_RELEASE" = false ] ; then
-		adb uninstall io.metamask.flask || true
-	fi
+	# if [ "$PRE_RELEASE" = false ] ; then
+	# 	adb uninstall io.metamask.flask || true
+	# fi
 	prebuild_android
 
 	# GENERATE APK
@@ -521,14 +521,14 @@ buildAndroidFlaskRelease(){
 		./gradlew bundleFlaskRelease
 	fi
 
-	if [ "$PRE_RELEASE" = true ] ; then
-		# Generate checksum
-		yarn build:android:checksum:flask
-	fi
+	# if [ "$PRE_RELEASE" = true ] ; then
+	# 	# Generate checksum
+	# 	yarn build:android:checksum:flask
+	# fi
 
-	if [ "$PRE_RELEASE" = false ] ; then
-		adb install app/build/outputs/apk/flask/release/app-flask-release.apk
-	fi
+	# if [ "$PRE_RELEASE" = false ] ; then
+	# 	adb install app/build/outputs/apk/flask/release/app-flask-release.apk
+	# fi
 }
 
 buildAndroidReleaseE2E(){

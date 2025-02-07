@@ -38,6 +38,7 @@ android/app/.project
 android/app/bin/
 android/app/gradle*
 android/app/_build*
+android/app/flask/release/
 
 # if we ever want to add google services
 android/app/google-services.json
@@ -79,6 +80,7 @@ tests
 # Sentry
 /sentry.debug.properties
 /sentry.release.properties
+/sentry.release.properties-e
 
 # editor
 .vscode
@@ -136,3 +138,5 @@ android/app/src/main/assets/modules.json
 .expo
 dist/
 web-build/
+
+sentry.properties
