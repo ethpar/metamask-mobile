@@ -214,12 +214,12 @@ prebuild_android(){
     exit 1
   fi
 
-	if [ "$PRE_RELEASE" = false ] ; then
-		if [ -e $ANDROID_ENV_FILE ]
-		then
-			source $ANDROID_ENV_FILE
-		fi
-	fi
+	# if [ "$PRE_RELEASE" = false ] ; then
+	# 	if [ -e $ANDROID_ENV_FILE ]
+	# 	then
+	# 		source $ANDROID_ENV_FILE
+	# 	fi
+	# fi
 }
 
 buildAndroidRun(){
