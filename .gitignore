@@ -80,6 +80,7 @@ tests
 # Sentry
 /sentry.debug.properties
 /sentry.release.properties
+/sentry.release.properties-e
 
 # editor
 .vscode
